@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pedido - Hand-Maniac</title>
+    
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'core/CSS/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'core/CSS/style.css' %}" type="text/css">
+    
+
+</head>
+<body>
+    <!-- Bootstrap NavBar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-rosa-opaco">
+        
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'core/IMG/LOGO.png' %}" width="45" height="45"  alt="">
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#menuDesplegable">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuDesplegable">
+            <ul class="navbar-nav">
+                <li class="nav-item  mr-4">
+                    <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" href="#">Categorias</a>
+                </li>
+                <li class="nav-item active mr-4">
+                    <a class="nav-link" href="{% url 'quienes_somos' %}">Quienes somos</a>
+                </li>
+                <li class="nav-item  mr-4">
+                    <a class="nav-link" href="{% url 'pedido' %}">Pedido</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" href="{% url 'listado' %}">Listado</a>
+                </li>
+
+                <li class="nav-item dropdown mr-4">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if user.is_authenticated %}
+                        Mi Cuenta
+                        {% else %}
+                        Bienvenid@
+                        {% endif %}
+                        <img src="{% static  'core/IMG/usuario.png' %}  " width="45" height="45"  alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% if user.is_authenticated %}
+                        <a class="dropdown-item" href="#">Bienvenid@ : {{ user.username }}</a>
+                        <a class="dropdown-item" href="{% url 'logout'%}">Cerrar Sesión</a>
+                        {% else %}
+                        <a class="dropdown-item" href="{% url 'login' %}">Iniciar Sesión</a>
+                        <a class="dropdown-item" href="{% url 'registroUsuarios' %}">Registrate</a>
+                        {% endif %}
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'core/IMG/carrito2.png' %}" width="45" height="45"  alt="">
+        </a>
+    </nav>
+    
+
+    <div class="container">
+    
+        <!-- FORMULARIO -->
+
+        <div class="row" id="formulario">
+            
+            <div  class="col-4" id="mensj-des">
+                <h2 class="pb-4" >¡Averigua más de nosotrxs!</h2>
+
+                <p>Somos un emprendimiento nacido en medio de la pandemia que busca poder otorgar pequeñas alegrias al cambiar el espacio en tu hogar y asi poder pasar estas largas horas que pasas dentro de el, admirando y usando nuestros productos de forma amena</p>
+                
+                <p>Compuesto por un grupo de diez personas, cada uno se dedica con gran empeño y perseverancia en cumplir con las expectativas de nuestros clientes</p>
+
+                <p>Por eso incluso en nuestros empaquetados nos aseguramos no solo en la seguridad, si no tambien que apenas vean paquete sea una alegria a al vista y un disfrute al abrirlo con los pequeños detalles que dedicamos</p>
+            
+                <p>Si quieres saber más de nosotrxs y acompañarnos en nuestro aventura de crecer y mejorar cada vez ¡siguenos en nuestras redes sociales!</p>
+            </div>
+
+            <div class="col-4" id="img-quien">
+                <img src="{% static 'core/img/producto06.jpg' %}" alt="">
+            </div>
+            
+            <!-- <div class="col-6">
+                <img src="{% static 'core/IMG/LOGO.png' %}" width="45" height="45"  alt="">
+            </div> -->
+        </div>
+
+        
+
+
+
+
+
+
+    </div>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="page-footer mt-4 bg-rosa-footer">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="#"> www.sansreves.com</a>
+        </div>
+
+    </footer>
+
+
+</div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'core/js/jquery-3.3.1.slim.min.js' %} "></script>
+    <script src="{% static 'core/js/popper.min.js'%} "></script>
+    <script src="{% static 'core/js/bootstrap.min.js'%} "></script>
+
+    <script src="{% static 'core/JS/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'core/js/validaciones.js' %}"></script>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand-Maniac / Login</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'core/css/style-login.css' %}" type="text/css">
+
+</head>
+<body>
+    
+    <div class="wrapper fadeInDown">
+        <div id="formContent">        
+      
+          <!-- Icono -->
+          <div class="mt-4 mb-3">
+            <img src="{% static 'core/img/usuario.png ' %}" height="90" width="90" />
+          </div>
+      
+          <!-- formulario login -->
+
+          <h2>Inicio de Sesión</h1>
+
+          <form method="POST">
+              {% csrf_token%}
+                <div>
+                    <input type="text" id="username" class="fadeIn second px-5 py-1 mt-4 mb-3" name="username" placeholder="Usuario">
+                </div>
+                <div>
+                    <input type="password" id="password" class="fadeIn third px-5 py-1 mt-3 mb-3" name="password" placeholder="Contraseña">
+                </div>
+            
+            <input type="submit" class="fadeIn fourth btn-info px-5 py-1 mt-3 mb-3" value="Ingresar">
+          </form>
+      
+          <!-- resetear contrseña -->
+          <div id="formFooter">
+            
+            <a class="" href="{% url 'registroUsuarios' %} ">Regístrate</a> |
+            <a class="" href="{% url 'password_reset' %}">¿Olvidó la contraseña?</a>
+            
+          </div>
+      
+        </div>
+      </div>
+
+    
+     
+</body>
+
+
+    
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'core/js/jquery-3.3.1.slim.min.js' %} "></script>
+    <script src="{% static 'core/js/popper.min.js'%} "></script>
+    <script src="{% static 'core/js/bootstrap.min.js'%} "></script>
+
+    <script src="{% static 'core/JS/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'core/js/validaciones.js' %}"></script>
+</html>
